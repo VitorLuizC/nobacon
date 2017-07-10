@@ -5,14 +5,16 @@ const { UglifyJsPlugin, CommonsChunkPlugin } = optimize
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 /**
- * Returns webpack plugins for both 'development' and 'distribution'
- * environments.
- * @param {('development'|'production')} env
+ * Definição de ambiente.
+ * @typedef {('development'|'production')} Environment
+ */
+
+/**
+ * Obtém os plugins para o ambiente definido em "env".
+ * @param {Environment} env
  * @returns {Array.<webpack.Plugin>}
  */
 function getPlugins(env) {
-  const isProd = env === 'production'
-
   const htmlMinifierConfig = {
     html5: true,
     removeComments: true,
@@ -25,17 +27,17 @@ function getPlugins(env) {
     removeStyleLinkTypeAttributes: true
   }
 
-  let plugins = [
+  const plugins = [
     new ExtractTextPlugin('css/style.css'),
     new HtmlPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, '../src/index.html'),
-      minify: !isProd ? false : htmlMinifierConfig
+      minify: env === 'development' ? false : htmlMinifierConfig
     })
   ]
 
-  if (isProd) {
-    plugins = plugins.concat([
+  if (env !== 'development') {
+    plugins.push(
       new DefinePlugin({
         'process.env': {
           NODE_ENV: '"production"'
@@ -46,7 +48,7 @@ function getPlugins(env) {
         minChunks: 2
       }),
       new UglifyJsPlugin()
-    ])
+    )
   }
 
   return plugins

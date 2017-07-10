@@ -1,5 +1,5 @@
 <template>
-  <p>Olaar</p>
+  <p>Olá</p>
 </template>
 
 <script>

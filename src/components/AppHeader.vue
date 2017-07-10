@@ -1,6 +1,7 @@
 <template>
   <header>
     <h1>No Bacon</h1>
+    <img src="~@images/logo.png" />
 
     <nav>
       <ul>

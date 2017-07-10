@@ -1,20 +1,24 @@
 const path = require('path')
 const getPlugins = require('./getPlugins')
-const getLoaders = require('./getLoaders')
+const getRules = require('./getRules')
 
 /**
- * Returns webpack configuration object for both 'production' and 'development'
- * environments.
+ * Definição de ambiente.
+ * @typedef {('development'|'production')} Environment
+ */
+
+/**
+ * Obtém a configuração do bundler para o ambiente determinado em "env".
  * @param {('development'|'production')} env
  * @returns {webpack.Configuration}
  */
-function getWebpackConfiguration(env) {
-  const isProd = env === 'production'
-
+function getConfiguration(env) {
   const configuration = {
     entry: {
-      main: './src/index.js',
-      vendors: ['babel-polyfill']
+      main: './src',
+      vendors: [
+        'babel-polyfill'
+      ]
     },
     output: {
       path: path.resolve(__dirname, '../dist'),
@@ -23,19 +27,26 @@ function getWebpackConfiguration(env) {
     resolve: {
       extensions: ['.js', '.json', '.vue'],
       alias: {
-        '\@store': path.resolve(__dirname, '../src/store'),
-        '\@components': path.resolve(__dirname, '../src/components'),
-        '\@app': path.resolve(__dirname, '../src/app')
+        'vue$': 'vue/dist/vue.esm.js',
+        '@store': path.resolve(__dirname, '../src/store'),
+        '@components': path.resolve(__dirname, '../src/components'),
+        '@app': path.resolve(__dirname, '../src/app'),
+        '@images': path.resolve(__dirname, '../src/assets/images')
       }
     },
-    module: {
-      rules: getLoaders(env)
+    devServer: {
+      contentBase: path.join(__dirname, '../dist'),
+      port: process.env.PORT || 9000,
+      host: process.env.IP || '127.0.0.1'
     },
-    devtool: !isProd ? 'source-map' : false,
+    module: {
+      rules: getRules(env)
+    },
+    devtool: (env === 'development') ? 'source-map' : false,
     plugins: getPlugins(env)
   }
 
   return configuration
 }
 
-module.exports = getWebpackConfiguration
+module.exports = getConfiguration

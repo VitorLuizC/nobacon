@@ -4,6 +4,6 @@ import store from '@store'
 
 new Vue({
   store,
-  el: '[data-app]',
-  render: renderize => renderize(App)
+  el: '#app',
+  render: h => h(App)
 })

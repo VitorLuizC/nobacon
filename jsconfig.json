@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "target": "es2017"
+  },
+  "files": [
+    "./src/**/*.js",
+    "./src/**/*.vue"
+  ],
+  "exclude": [
+    "./node_modules",
+    "./dist"
+  ]
+}
