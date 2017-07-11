@@ -4,8 +4,12 @@
 
     <nav class="menu">
       <ul class="menu-list">
-        <li class="menu-item">Sobre</li>
-        <li class="menu-item">Contato</li>
+        <router-link to="/about" class="menu-item" tag="li" active-class="-current">
+          <a class="link">Sobre</a>
+        </router-link>
+        <router-link to="/contact" class="menu-item" tag="li" active-class="-current">
+          <a class="link">Contato</a>
+        </router-link>
       </ul>
     </nav>
 
@@ -34,20 +38,28 @@
 </script>
 
 <style lang="stylus">
-  .menu-container
-    display: flex
-
-  .menu-list
-    display: flex
-    list-style: none
-
   .view-header
-    height: 80px
+    position: absolute
+    top: 0
+    left: 0
+    right: @left
     display: flex
+    align-items: center
+    box-shadow: 0 0 10px rgba(#000, .25)
 
     > .logo
       height: 100%
 
     > .menu
-      @extends .menu-container
+      height: 100%
+      margin-left: auto
+
+  .menu-list
+    display: flex
+    height: 100%
+    list-style: none
+    align-items: center
+
+    > .menu-item + .menu-item
+      margin-left: 25px
 </style>

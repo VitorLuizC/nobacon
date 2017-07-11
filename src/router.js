@@ -14,6 +14,14 @@ export default new Router({
     {
       path: '/auth',
       component: views.Auth
+    },
+    {
+      path: '/about',
+      component: views.About
+    },
+    {
+      path: '/contact',
+      component: views.Contact
     }
   ]
 })
