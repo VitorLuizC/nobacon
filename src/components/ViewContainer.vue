@@ -22,6 +22,23 @@
 </script>
 
 <style lang="stylus">
+  @import '~@styles/helpers'
+
+  view-header = {
+    height: 80px
+  }
+
   .view-container
+    clearfix()
     height: 100%
+
+    > .view-header
+      height: view-header.height
+
+    > .view-content
+      height: 100%
+
+    > .view-header ~ .view-content
+      height: 'calc(100% - %s)' % view-header.height
+      margin-top: view-header.height
 </style>
