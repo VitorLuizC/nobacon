@@ -60,11 +60,11 @@ function getRules(env) {
   }
 
   const rules = [
-    {
-      test: /\.js$/,
-      exclude: /node_modules/,
-      use: 'babel-loader'
-    },
+    // {
+    //   test: /\.js$/,
+    //   exclude: /node_modules/,
+    //   use: 'babel-loader'
+    // },
     {
       test: /\.vue$/,
       exclude: /node_modules/,

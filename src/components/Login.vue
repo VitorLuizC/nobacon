@@ -21,8 +21,9 @@
 </template>
 
 <script>
-  import { Tabs, Tab } from 'vue-tabs-component'
+  import { mapActions } from 'vuex'
   import * as types from '@store/types'
+  import { Tabs, Tab } from 'vue-tabs-component'
 
   export default {
     components: { Tab, Tabs },
@@ -32,11 +33,7 @@
         password: ''
       }
     },
-    methods: {
-      signIn(...args) {
-        console.log(args)
-      }
-    }
+    methods: mapActions({ signIn: types.AUTH_SIGNIN })
   }
 </script>
 
