@@ -38,7 +38,8 @@ function getConfiguration(env) {
     devServer: {
       contentBase: path.join(__dirname, '../dist'),
       port: process.env.PORT || 9000,
-      host: process.env.IP || '127.0.0.1'
+      host: process.env.IP || '127.0.0.1',
+      historyApiFallback: true
     },
     module: {
       rules: getRules(env)
