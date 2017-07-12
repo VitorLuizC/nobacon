@@ -1,14 +1,14 @@
 <template>
   <view-container :header="false">
-    <login />
+    <auth-form />
   </view-container>
 </template>
 
 <script>
   import ViewContainer from '@components/ViewContainer'
-  import Login from '@components/Login'
+  import AuthForm from '@components/AuthForm'
 
   export default {
-    components: { ViewContainer, Login }
+    components: { ViewContainer, AuthForm }
   }
 </script>
