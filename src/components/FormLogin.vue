@@ -1,44 +1,32 @@
 <template>
-  <form class="auth-form" @submit.prevent="signIn({ email, password })">
-    <div class="form-group">
-      <input v-model="email" class="input" type="email">
-      <label class="label">E-Mail</label>
-    </div>
-    <div class="form-group">
-      <input v-model="password" class="input" type="password">
-      <label class="label">Senha</label>
-    </div>
-    <button-primary
-      class="button"
-      type="submit">Entrar</button-primary>
-    <router-link to="/recover">Esqueceu sua senha?</router-link>
-    <hr class="separator" />
-    <button-primary
-      @click.native="signIn({ method: 'facebook' })"
-      class="button -block"
-      type="button"
-      >Entrar com o Facebook</button-primary>
-    <button-primary
-      @click.native="signIn({ method: 'google' })"
-      class="button -block"
-      type="button"
-      >Entrar com o Google</button-primary>
-  </form>
+  <ui-card title="Login" class="-center">
+    <form @submit.prevent="signIn({ email, password })" id="form-login">
+      <ui-input v-model="email" type="email" label="E-Mail" />
+      <ui-input v-model="password" type="password" label="Senha" />
+    </form>
+    <ui-button slot="footer" form="form-login">Entrar</ui-button>
+  </ui-card>
 </template>
 
 <script>
   import { mapActions } from 'vuex'
   import * as types from '@store/types'
-  import ButtonPrimary from './ButtonPrimary'
+  import UiButton from './UiButton'
+  import UiCard from './UiCard'
+  import UiInput from './UiInput'
 
   export default {
-    components: { ButtonPrimary },
+    components: {
+      UiButton,
+      UiCard,
+      UiInput
+    },
     data() {
       return {
         email: '',
         password: ''
       }
     },
-    methods: mapActions({ signIn: types.AUTH_SIGNIN })
+    methods: mapActions({ signIn: types.USER_SIGNIN })
   }
 </script>

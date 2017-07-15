@@ -12,16 +12,16 @@ export default new Router({
       component: views.Home
     },
     {
-      path: '/auth',
-      component: views.Auth
+      path: '/login',
+      component: views.Login
     },
     {
-      path: '/about',
-      component: views.About
+      path: '/subscribe',
+      component: views.Subscribe
     },
     {
-      path: '/contact',
-      component: views.Contact
+      path: '/product/:id',
+      component: views.Home
     }
   ]
 })

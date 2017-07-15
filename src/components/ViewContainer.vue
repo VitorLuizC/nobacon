@@ -1,6 +1,6 @@
 <template>
   <div class="view-container">
-    <view-header v-if="header" />
+    <view-header v-if="!hideHeader" />
     <main class="view-content">
       <slot />
     </main>
@@ -13,9 +13,9 @@
   export default {
     components: { ViewHeader },
     props: {
-      header: {
+      hideHeader: {
         type: Boolean,
-        default: true
+        default: false
       }
     }
   }

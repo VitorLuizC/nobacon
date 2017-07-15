@@ -1,11 +1,9 @@
-import About from './About'
-import Auth from './Auth'
-import Contact from './Contact'
 import Home from './Home'
+import Login from './Login'
+import Subscribe from './Subscribe'
 
 export default {
-  About,
-  Auth,
-  Contact,
-  Home
+  Home,
+  Login,
+  Subscribe
 }
