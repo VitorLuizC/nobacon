@@ -12,16 +12,8 @@ export default new Router({
       component: views.Home
     },
     {
-      path: '/login',
-      component: views.Login
-    },
-    {
-      path: '/subscribe',
-      component: views.Subscribe
-    },
-    {
       path: '/product/:id',
-      component: views.Home
+      component: views.Product
     }
   ]
 })

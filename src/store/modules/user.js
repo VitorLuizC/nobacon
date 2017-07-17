@@ -1,6 +1,6 @@
 import * as types from '@store/types'
 import firebase from 'firebase'
-import { auth } from '../../app'
+import { auth } from '@app'
 
 export const state = {
   user: null
@@ -30,7 +30,7 @@ export const actions = {
       console.error(error)
     }
   },
-  async [types.USER_SIGNUP]({ commit }) {
+  async [types.USER_SIGNON]({ commit }) {
     try {
       const response = await auth.createUserWithEmailAndPassword(
         payload.email,
@@ -45,6 +45,16 @@ export const actions = {
     try {
       await auth.signOut()
       commit(types.USER, null)
+    } catch (error) {
+      console.error(error)
+    }
+  },
+  async [types.USER_SIGNOFF]({ commit }) {
+    try {
+      /**
+       * TODO: Fazer o descadastramento de usuários.
+       * @private
+       */
     } catch (error) {
       console.error(error)
     }

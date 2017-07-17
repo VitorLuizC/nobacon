@@ -1,0 +1,36 @@
+<template>
+  <view-container hide-header>
+    <ui-card title="Entrar" class="-center">
+      <form @submit.prevent="signIn({ email, password })" id="form-login">
+        <ui-input v-model="email" type="email" label="E-Mail" />
+        <ui-input v-model="password" type="password" label="Senha" />
+      </form>
+      <ui-button slot="footer" form="form-login">Entrar</ui-button>
+    </ui-card>
+  </view-container>
+</template>
+
+<script>
+  import { mapActions } from 'vuex'
+  import * as types from '@store/types'
+  import UiButton from '@components/UiButton'
+  import UiCard from '@components/UiCard'
+  import UiInput from '@components/UiInput'
+  import ViewContainer from '@components/ViewContainer'
+
+  export default {
+    components: {
+      UiButton,
+      UiCard,
+      UiInput,
+      ViewContainer
+    },
+    data() {
+      return {
+        email: '',
+        password: ''
+      }
+    },
+    methods: mapActions({ signIn: types.USER_SIGNIN })
+  }
+</script>
