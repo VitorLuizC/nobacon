@@ -12,7 +12,7 @@
       ViewContainer
     },
     computed: {
-      id() {
+      id () {
         return this.$route.id
       }
     }

@@ -26,7 +26,7 @@
       UiInput,
       ViewContainer
     },
-    data() {
+    data () {
       return {
         name: '',
         email: '',

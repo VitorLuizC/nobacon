@@ -19,7 +19,7 @@
       ProductCard,
       UiSelect
     },
-    data() {
+    data () {
       return {
         ordenation: null,
         ordenations: [

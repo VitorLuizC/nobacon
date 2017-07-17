@@ -12,14 +12,17 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
  * @param {Environment} env
  * @returns {Array.<webpack.Rule>}
  */
-function getRules(env) {
+function getRules (env) {
   const styleLoaders = [
     {
       loader: 'css-loader',
       options: {
         minimize: env === 'development' ? false : {
-          autoprefixer: false // Impede que o cssnano imbutido no css-loader
-        }                     // sobrescreva os prefixos configurados.
+          autoprefixer: false /**
+                               * Impede que o cssnano imbutido no css-loader
+                               * sobrescreva os prefixos configurados.
+                               **/
+        }
       }
     },
     {
@@ -33,7 +36,6 @@ function getRules(env) {
       }
     }
   ]
-
 
   const imageLoaders = [
     {
@@ -60,6 +62,12 @@ function getRules(env) {
   }
 
   const rules = [
+    {
+      test: /\.(js|vue)$/,
+      exclude: /node_modules/,
+      enforce: 'pre',
+      loader: 'eslint-loader'
+    },
     {
       test: /\.js$/,
       exclude: /node_modules/,

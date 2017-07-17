@@ -12,7 +12,7 @@ const getRules = require('./getRules')
  * @param {('development'|'production')} env
  * @returns {webpack.Configuration}
  */
-function getConfiguration(env) {
+function getConfiguration (env) {
   const configuration = {
     entry: {
       main: './src',
@@ -32,7 +32,7 @@ function getConfiguration(env) {
         '@store': path.resolve(__dirname, '../src/store'),
         '@styles': path.resolve(__dirname, '../src/assets/styles'),
         '@images': path.resolve(__dirname, '../src/assets/images'),
-        '@components': path.resolve(__dirname, '../src/components'),
+        '@components': path.resolve(__dirname, '../src/components')
       }
     },
     devServer: {

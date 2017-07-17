@@ -11,7 +11,7 @@
   import image from '@images/camiseta.jpeg'
 
   export default {
-    data() {
+    data () {
       return {
         product: {
           id: '01',

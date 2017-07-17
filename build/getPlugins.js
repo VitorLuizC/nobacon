@@ -14,7 +14,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
  * @param {Environment} env
  * @returns {Array.<webpack.Plugin>}
  */
-function getPlugins(env) {
+function getPlugins (env) {
   const htmlMinifierConfig = {
     html5: true,
     removeComments: true,

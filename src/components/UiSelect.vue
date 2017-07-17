@@ -27,7 +27,7 @@
 
   export default {
     components: { UiCard },
-    data() {
+    data () {
       return {
         selected: null,
         open: false
@@ -44,13 +44,13 @@
       }
     },
     methods: {
-      input(option) {
+      input (option) {
         this.selected = option
         this.open = false
         this.$emit('input', option)
       }
     },
-    mounted() {
+    mounted () {
       this.input(this.options[0])
     }
   }
