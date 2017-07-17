@@ -36,6 +36,8 @@
       height: view-header.height
 
     > .view-content
+      position: relative
+      overflow: auto
       height: 100%
 
     > .view-header ~ .view-content
