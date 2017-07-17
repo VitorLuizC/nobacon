@@ -12,9 +12,10 @@ Vue.filter('$', function (value) {
   return 'R$' + format.format(value)
 })
 
-new Vue({
+const vue = new Vue({
   store,
   router,
-  el: '#app',
   render: h => h(App)
 })
+
+vue.$mount('#app')
