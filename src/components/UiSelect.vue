@@ -4,7 +4,7 @@
       class="selected"
       type="text"
       @click="open = !open"
-      disabled> {{ selected ? selected.label : null }} </p>
+      disabled> {{ selected ? selected[label] : null }} </p>
     <transition
       enter-active-class="fadeInDown"
       leave-active-class="fadeOutUp">
@@ -15,7 +15,7 @@
             v-for="(option, index) in options"
             :key="index"
             @click="input(option)"
-            >{{ option.label }}</li>
+            >{{ option[label] }}</li>
         </ul>
       </ui-card>
     </transition>
@@ -34,6 +34,10 @@
       }
     },
     props: {
+      label: {
+        type: String,
+        default: 'label'
+      },
       options: {
         type: Array,
         required: true
