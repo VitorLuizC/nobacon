@@ -1,17 +1,17 @@
 centralize(type = absolute, axis = both)
   if (type == block || type == inline-block)
-    display: type;
+    display: type
 
     if (axis == horizontal)
-      margin-right: auto;
-      margin-left: @margin-right;
+      margin-right: auto
+      margin-left: @margin-right
 
     if (axis == both)
-      margin-right: auto;
-      margin-left: @margin-right;
+      margin-right: auto
+      margin-left: @margin-right
 
   if (type == absolute || type == fixed)
-    position: type;
+    position: type
 
     if (axis == both)
       top: 50%
