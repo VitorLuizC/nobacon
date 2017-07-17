@@ -25,7 +25,7 @@ function getConfiguration(env) {
       filename: 'js/[name].js'
     },
     resolve: {
-      extensions: ['.js', '.json', '.vue'],
+      extensions: ['.vue', '.js', '.json'],
       alias: {
         'vue$': 'vue/dist/vue.esm.js',
         '@app': path.resolve(__dirname, '../src/app'),
