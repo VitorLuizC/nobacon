@@ -4,19 +4,14 @@
     "target": "es2017",
     "baseUrl": "./",
     "paths": {
-      "@app/": ["src/app"],
-      "@store/": ["src/store/*"],
-      "@styles/": ["src/assets/styles/*"],
-      "@images/": ["src/assets/images/*"],
-      "@components/": ["src/components/*"]
+      "@app/": "./src/app.js",
+      "@store/": ["./src/store/*"],
+      "@styles/": ["./src/assets/styles/*"],
+      "@images/": ["./src/assets/images/*"],
+      "@components/": ["./src/components/*"]
     }
   },
   "files": [
-    "src/**/*.js",
-    "src/**/*.vue"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
+    "./src/**/*"
   ]
 }
