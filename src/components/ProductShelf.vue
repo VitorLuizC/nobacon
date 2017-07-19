@@ -66,7 +66,7 @@
 
 <style lang="stylus">
   .shelf-products-move
-    transition: transform 1s ease
+    transition: transform .8s ease-out
 
   .product-shelf
     width: 100%
@@ -102,4 +102,8 @@
     display: flex
     flex-direction: row
     justify-content: space-around
+    flex-wrap: wrap
+
+    & > .product-card
+      margin-bottom: 25px
 </style>

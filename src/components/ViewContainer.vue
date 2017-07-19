@@ -42,9 +42,16 @@
       justify-content: flex-start
       align-items: center
       flex-direction: column
-      height: 100%
+      min-height: 100%
+
+      @media screen and (min-width: 768px)
+        height: 100%
+        min-height: auto
 
     > .view-header ~ .view-content
-      height: 'calc(100% - %s)' % view-header.height
-      margin-top: view-header.height
+      min-height: 'calc(100% - %s)' % view-header.height
+
+      @media screen and (min-width: 768px)
+        height: 'calc(100% - %s)' % view-header.height
+        min-height: auto
 </style>
