@@ -4,7 +4,10 @@
       class="selected"
       type="text"
       @click="open = !open"
-      disabled> {{ selected ? selected[label] : null }} </p>
+      disabled>
+      {{ selected ? selected[label] : null }}
+      <i class="icon -char">{{ open ? '&#9650;' : '&#9660;' }}</i>
+    </p>
     <transition
       enter-active-class="fadeInDown"
       leave-active-class="fadeOutUp">
@@ -65,13 +68,13 @@
 
     & > .card
       position: absolute
-      top: 100%
+      top: calc(100% - 10px)
       right: -10px
       background-color: #fff
       z-index: 1
 
   .ui-select-options
-    display: flex
+    display: flex7
     flex-direction: column
     list-style: none
     margin: 0 -20px

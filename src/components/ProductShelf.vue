@@ -1,9 +1,12 @@
 <template>
   <div class="product-shelf">
     <div class="product-shelf-filters">
-      <ui-select v-model="ordenation" class="ordenation" :options="ordenations" />
+      <div class="product-shelf-filter">
+        <span class="label">Ordenar por:</span>
+        <ui-select class="input" v-model="ordenation" :options="ordenations" />
+      </div>
     </div>
-    <hr />
+    <hr class="separator" />
     <div class="product-shelf-products">
       <product-card v-for="(product, index) in products" :key="index" :product="product" />
     </div>
@@ -58,6 +61,11 @@
     width: 100%
     margin-top: 25px
 
+    & > .separator
+      height: 1px
+      background-color: #999 + 75%
+      margin-bottom: 20px
+
     @media screen and (min-width: 1280px)
       width: 1280px
 
@@ -65,9 +73,19 @@
     display: flex
     flex-direction: row
 
-    & > .ordenation
+    & > .product-shelf-filter
       margin-right: 20px
       margin-left: auto
+
+  .product-shelf-filter
+    display: flex
+    align-items: center
+
+    & > .label
+      margin-right: 10px
+    
+    & > .input
+      font-weight: 400
 
   .product-shelf-products
     display: flex
