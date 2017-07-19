@@ -1,6 +1,6 @@
 <template>
   <view-container>
-    <product-shelf :products="[product]" />
+    <product-shelf :products="products" />
   </view-container>
 </template>
 
@@ -13,12 +13,36 @@
   export default {
     data () {
       return {
-        product: {
-          id: '01',
-          name: 'Camiseta No Bacon',
-          images: [image, image],
-          price: 39.90
-        }
+        products: [
+          {
+            id: '01',
+            name: 'Camiseta No Bacon',
+            images: [image, image],
+            sellings: 12,
+            price: 39.90
+          },
+          {
+            id: '02',
+            name: 'Camiseta No Bacon 2',
+            sellings: 3,
+            images: [image, image],
+            price: 59.90
+          },
+          {
+            id: '03',
+            name: 'Camiseta No Bacon 3',
+            sellings: 1,
+            images: [image, image],
+            price: 59.90
+          },
+          {
+            id: '04',
+            name: 'Camiseta No Bacon 4',
+            sellings: 10,
+            images: [image, image],
+            price: 34.90
+          }
+        ]
       }
     },
     components: {

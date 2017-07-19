@@ -7,9 +7,9 @@
       </div>
     </div>
     <hr class="separator" />
-    <div class="product-shelf-products">
-      <product-card v-for="(product, index) in products" :key="index" :product="product" />
-    </div>
+    <transition-group class="product-shelf-products" name="shelf-products" tag="div">
+      <product-card v-for="product in filtredProducts" :key="product.id" :product="product" />
+    </transition-group>
   </div>
 </template>
 
@@ -29,13 +29,13 @@
           {
             label: 'Mais vendidos',
             value: (a, b) => {
-              return (a.sellings > b.sellings) ? 1 : (a.sellings === b.sellings) ? 0 : -1
+              return (a.sellings < b.sellings) ? 1 : (a.sellings === b.sellings) ? 0 : -1
             }
           },
           {
             label: 'Menor preço',
             value: (a, b) => {
-              return (a.price < b.price) ? 1 : (a.price === b.price) ? 0 : -1
+              return (a.price > b.price) ? 1 : (a.price === b.price) ? 0 : -1
             }
           },
           {
@@ -45,6 +45,14 @@
             }
           }
         ]
+      }
+    },
+    computed: {
+      filtredProducts () {
+        if (this.ordenation) {
+          return this.products.sort(this.ordenation.value)
+        }
+        return this.products
       }
     },
     props: {
@@ -57,6 +65,9 @@
 </script>
 
 <style lang="stylus">
+  .shelf-products-move
+    transition: transform 1s ease
+
   .product-shelf
     width: 100%
     margin-top: 25px
@@ -90,5 +101,5 @@
   .product-shelf-products
     display: flex
     flex-direction: row
-    justify-content: center
+    justify-content: space-around
 </style>
