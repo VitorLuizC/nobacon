@@ -25,7 +25,7 @@
   @import '~@styles/helpers'
 
   view-header = {
-    height: 80px
+    height: 120px
   }
 
   .view-container

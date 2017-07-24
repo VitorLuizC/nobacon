@@ -27,12 +27,13 @@ function getConfiguration (env) {
     resolve: {
       extensions: ['.vue', '.js', '.json'],
       alias: {
-        'vue$': 'vue/dist/vue.esm.js',
         '@app': path.resolve(__dirname, '../src/app'),
+        '@components': path.resolve(__dirname, '../src/components'),
+        '@images': path.resolve(__dirname, '../src/assets/images'),
+        '@lib': path.resolve(__dirname, '../src/lib'),
         '@store': path.resolve(__dirname, '../src/store'),
         '@styles': path.resolve(__dirname, '../src/assets/styles'),
-        '@images': path.resolve(__dirname, '../src/assets/images'),
-        '@components': path.resolve(__dirname, '../src/components')
+        'vue$': 'vue/dist/vue.esm.js'
       }
     },
     devServer: {
