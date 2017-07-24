@@ -8,18 +8,18 @@
     </div>
     <hr class="separator" />
     <transition-group class="product-shelf-products" name="shelf-products" tag="div">
-      <product-card v-for="product in filtredProducts" :key="product.id" :product="product" />
+      <product-item v-for="product in filtredProducts" :key="product.id" :product="product" />
     </transition-group>
   </div>
 </template>
 
 <script>
-  import ProductCard from './ProductCard'
+  import ProductItem from './ProductItem'
   import UiSelect from './UiSelect'
 
   export default {
     components: {
-      ProductCard,
+      ProductItem,
       UiSelect
     },
     data () {

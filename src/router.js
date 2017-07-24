@@ -9,6 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
+      alias: '/home',
       component: views.Home
     },
     {

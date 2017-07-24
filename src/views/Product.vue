@@ -13,7 +13,7 @@
     },
     computed: {
       id () {
-        return this.$route.id
+        return this.$route.params.id
       }
     }
   }

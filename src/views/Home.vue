@@ -17,7 +17,7 @@
           {
             id: '01',
             name: 'Camiseta No Bacon',
-            images: [image, image],
+            image: image,
             sellings: 12,
             price: 39.90
           },
@@ -25,21 +25,21 @@
             id: '02',
             name: 'Camiseta No Bacon 2',
             sellings: 3,
-            images: [image, image],
+            image: image,
             price: 59.90
           },
           {
             id: '03',
             name: 'Camiseta No Bacon 3',
             sellings: 1,
-            images: [image, image],
+            image: image,
             price: 59.90
           },
           {
             id: '04',
             name: 'Camiseta No Bacon 4',
             sellings: 10,
-            images: [image, image],
+            image: image,
             price: 34.90
           }
         ]
