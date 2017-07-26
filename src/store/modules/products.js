@@ -7,16 +7,22 @@ const state = {
 
 const getters = {
   [types.PRODUCTS]: state => {
-    return state.products
+    return Object.values(state.products) || []
+  }
+}
+
+const mutations = {
+  [types.PRODUCTS]: (state, payload) => {
+    state.products = payload
   }
 }
 
 const actions = {
   [types.PRODUCTS_FETCH]: async ({ commit }, payload) => {
-    const reference = await database.ref('products/')
+    const reference = database.ref('products/')
     const products = await reference.once('value')
-    commit(types.PRODUCTS, products)
+    commit(types.PRODUCTS, products.val())
   }
 }
 
-export default { state, getters, actions }
+export default { state, getters, mutations, actions }

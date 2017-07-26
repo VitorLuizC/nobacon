@@ -2,7 +2,7 @@
   <router-link class="product-item" :to="detail">
     <ui-card class="product-item-card -filled">
       <figure class="product-item-image">
-        <img class="image" :src="product.image" />
+        <img class="image" :src="product.images[0]" />
         <figcaption class="product-item-details">
           <h5 class="name">{{ product.name }}</h5>
         </figcaption>
