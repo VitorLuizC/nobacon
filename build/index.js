@@ -22,7 +22,8 @@ function getConfiguration (env) {
     },
     output: {
       path: path.resolve(__dirname, '../dist'),
-      filename: 'js/[name].js'
+      filename: 'js/[name].js',
+      publicPath: '/'
     },
     resolve: {
       extensions: ['.vue', '.js', '.json'],
