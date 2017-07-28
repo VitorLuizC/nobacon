@@ -19,5 +19,7 @@ export const USER_SIGNOFF = 'user/USER_SIGNOFF'
 /**
  * Tipos da Store de produtos.
  */
+export const PRODUCT        = 'products/PRODUCT'
+export const PRODUCT_FETCH  = 'products/PRODUCT_FETCH'
 export const PRODUCTS       = 'products/PRODUCTS'
 export const PRODUCTS_FETCH = 'products/PRODUCTS_FETCH'

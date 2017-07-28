@@ -18,46 +18,27 @@ export const mutations = {
 }
 
 export const actions = {
-  [types.USER_SIGNIN]: async (context, payload) => {
-    const { commit } = context
-
-    try {
-      const response = await auth.signInWithEmailAndPassword(
-        payload.email,
-        payload.password
-      )
-      commit(types.USER, response.user)
-    } catch (error) {
-      console.error(error)
-    }
+  [types.USER_SIGNIN]: async ({ commit }, payload) => {
+    const response = await auth.signInWithEmailAndPassword(
+      payload.email,
+      payload.password
+    )
+    commit(types.USER, response.user)
   },
   [types.USER_SIGNON]: async ({ commit }, payload) => {
-    try {
-      const response = await auth.createUserWithEmailAndPassword(
-        payload.email,
-        payload.password
-      )
-      commit(types.USER, response.user)
-    } catch (error) {
-      console.error(error)
-    }
+    const response = await auth.createUserWithEmailAndPassword(
+      payload.email,
+      payload.password
+    )
+    commit(types.USER, response.user)
   },
   [types.USER_SIGNOUT]: async ({ commit }) => {
-    try {
-      await auth.signOut()
-      commit(types.USER, null)
-    } catch (error) {
-      console.error(error)
-    }
+    await auth.signOut()
+    commit(types.USER, null)
   },
   [types.USER_SIGNOFF]: async ({ commit, getters }) => {
     const user = getters[types.USER]
-
-    try {
-      await user.delete()
-      commit(types.USER, null)
-    } catch (error) {
-      console.error(error)
-    }
+    await user.delete()
+    commit(types.USER, null)
   }
 }

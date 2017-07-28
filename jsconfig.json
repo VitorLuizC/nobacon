@@ -4,10 +4,12 @@
     "target": "es2017",
     "baseUrl": ".",
     "paths": {
-      "@store/*": ["src/store/*"],
-      "@styles/*": ["src/assets/styles/*"],
+      "@components/*": ["src/components/*"],
+      "@fonts/*": ["src/assets/fonts/*"],
       "@images/*": ["src/assets/images/*"],
-      "@components/*": ["src/components/*"]
+      "@lib/*": ["src/lib/*"],
+      "@store/*": ["src/store/*"],
+      "@styles/*": ["src/assets/styles/*"]
     }
   },
   "files": [
