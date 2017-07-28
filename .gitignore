@@ -3,3 +3,6 @@ node_modules
 
 # Arquivos de distribuição
 dist
+
+# Arquivos do Mac
+.DS_Store
