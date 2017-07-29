@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import views from './views'
+import MailListView from '@containers/MailListView'
 
 Vue.use(Router)
 
@@ -9,12 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      alias: '/home',
-      component: views.Home
-    },
-    {
-      path: '/product/:id',
-      component: views.Product
+      component: MailListView
     }
   ]
 })
