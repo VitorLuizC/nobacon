@@ -91,6 +91,15 @@ function getRules (env) {
     {
       test: /\.(png|jpe?g)$/,
       use: imageLoaders
+    },
+    {
+      test: /\.(woff|woff2)$/,
+      use: {
+        loader: 'file-loader',
+        options: {
+          name: 'font/[name].[ext]'
+        }
+      }
     }
   ]
 
