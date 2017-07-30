@@ -10,20 +10,26 @@
       <button class="button" type="button" @click="send()">Enviar</button>
     </form>
     <transition name="pop">
-      <p
-        v-if="message"
-        v-html="message"
-        :class="['mail-list-pop', isError ? '-error' : '']" />
+      <ui-card v-if="message" :class="['mail-list-card', isError ? '-error' : '']">
+        <p class="text" v-html="message" />
+      </ui-card>
     </transition>
+    <footer class="mail-list-footer">
+      &copy; 2017 - NOBACON STORE, Ltda.
+    </footer>
   </section>
 </template>
 
 <script>
   import * as types from '@store/types'
   import InputEmail from '@components/InputEmail'
+  import UiCard from '@components/UiCard'
 
   export default {
-    components: { InputEmail },
+    components: {
+      InputEmail,
+      UiCard
+    },
     data () {
       return {
         email: '',
@@ -101,6 +107,7 @@
       height: @width
       background-image: url('~@images/logo.png')
       background-position: center
+      opacity: .6
       content: ''
       z-index: -1
 
@@ -133,13 +140,25 @@
       border: none
       border-bottom: 3px solid border-color
 
-  .mail-list-pop
+  .mail-list-card
     position: absolute
     bottom: 10px
     left: 50%
+    background-color: #fff
     transform: translateX(-50%)
-    font-size: 20px
-    font-weight: 500
+
+    .text
+      text-align: center
+      font-size: 20px
+      font-weight: 500
+
+  .mail-list-footer
+    position: absolute
+    bottom: 0
+    width: 100%
+    padding: 20px
+    border-top: 1px solid #000
+    text-align: center
 
   .pop-enter-active
   .pop-leave-active

@@ -12,10 +12,12 @@
     <label v-if="label" class="label">{{ label }}</label>
     -->
 
+    <!--
     <span
       v-if="sugestion"
       ref="sugestion"
       class="sugestion">{{ sugestion }}</span>
+    -->
   </div>
 </template>
 
