@@ -1,7 +1,11 @@
 <template>
   <section class="mail-list-section">
+    <h1 class="title">NOBACON STORE</h1>
+    <p class="text">
+      Queremos você perto de nós quando tudo começar!
+      Deixe seu e-mail aqui e acompanhe as incríveis novidades da NOBACON STORE.
+    </p>
     <form class="mail-list-form" @submit.prevent="() => undefined">
-      <h1></h1>
       <input-email class="input" v-model="email" label="E-Mail" />
       <button class="button" type="button" @click="send()">Enviar</button>
     </form>
@@ -63,7 +67,7 @@
         setTimeout(() => {
           this.isError = false
           this.message = null
-        }, 2000)
+        }, 12000)
       }
     }
   }
@@ -74,13 +78,19 @@
 
   .mail-list-section
     position: relative
+    box-sizing: border-box
     display: flex
     flex-direction: column
     align-items: center
     justify-content: center
     width: 100%
     height: 100%
+    padding: 0 25px
     z-index: 0
+
+    & > .title
+    & > .text
+      text-align: center
 
     &::before
       position: absolute
@@ -129,9 +139,15 @@
     left: 50%
     transform: translateX(-50%)
     font-size: 20px
-    font-weight: 500 
+    font-weight: 500
 
-  /**
-   * Pop
-   */
+  .pop-enter-active
+  .pop-leave-active
+    transition: transform .8s ease,
+                opacity .8s ease
+
+  .pop-enter
+  .pop-leave-to
+    transform: translateX(-50%) scale(0) !important
+    opacity: 0
 </style>
