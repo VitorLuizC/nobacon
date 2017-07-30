@@ -120,7 +120,7 @@
     & > .button
       border: 3px solid border-color
       font-weight: 500
-      background-image: linear-gradient(135deg, transparent 0, transparent 98%, border-color 99%, border-color 100%)
+      background-image: none
       background-color: transparent
       box-shadow: 4px 4px 15px rgba(#000, .25)
       transition: background-color .8s ease,
@@ -156,6 +156,7 @@
   .mail-list-footer
     position: absolute
     bottom: 0
+    box-sizing: border-box
     width: 100%
     padding: 20px
     border-top: 1px solid #000
