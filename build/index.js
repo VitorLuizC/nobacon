@@ -29,6 +29,7 @@ function getConfiguration (env) {
       extensions: ['.vue', '.js', '.json'],
       alias: {
         '@components': path.resolve(__dirname, '../src/components'),
+        '@containers': path.resolve(__dirname, '../src/containers'),
         '@fonts': path.resolve(__dirname, '../src/assets/fonts'),
         '@images': path.resolve(__dirname, '../src/assets/images'),
         '@lib': path.resolve(__dirname, '../src/lib'),

@@ -1,11 +1,13 @@
 <template>
   <div class="view-container">
-    <view-header v-if="!hideHeader" />
-    <main class="view-content">
+    <slot name="header" v-if="!hideHeader">
+      <view-header />
+    </slot>
+    <section class="view-content">
       <slot />
-    </main>
+    </section>
   </div>
-</template> 
+</template>
 
 <script>
   import ViewHeader from './ViewHeader'

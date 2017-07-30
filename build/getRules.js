@@ -81,7 +81,9 @@ function getRules (env) {
         options: {
           loaders: {
             stylus: ExtractTextPlugin.extract({
+              allChunks: true,
               publicPath: '../',
+              fallback: 'vue-style-loader',
               use: styleLoaders
             })
           }

@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "module": "es2015",
-    "target": "es2017",
+    "module": "commonjs",
+    "target": "esnext",
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
+      "@containers/*": ["src/containers/*"],
       "@fonts/*": ["src/assets/fonts/*"],
       "@images/*": ["src/assets/images/*"],
       "@lib/*": ["src/lib/*"],

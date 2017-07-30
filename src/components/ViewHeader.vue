@@ -8,6 +8,7 @@
           alt="NoBacon Store"
           title="NoBacon Store" />
       </router-link>
+      <slot />
     </div>
   </header>
 </template>
