@@ -5,9 +5,9 @@
       Queremos você perto de nós quando tudo começar!
       Deixe seu e-mail aqui e acompanhe as incríveis novidades da NOBACON STORE.
     </p>
-    <form class="mail-list-form" @submit.prevent="() => undefined">
+    <form class="mail-list-form" @submit.prevent="send()">
       <input-email class="input" v-model="email" label="E-Mail" />
-      <button class="button" type="button" @click="send()">Enviar</button>
+      <button class="button" type="submit" :disabled="sended">Enviar</button>
     </form>
     <transition name="pop">
       <ui-card v-if="message" :class="['mail-list-card', isError ? '-error' : '']">
@@ -32,6 +32,7 @@
     },
     data () {
       return {
+        sended: false,
         email: '',
         message: null,
         isError: false
@@ -50,6 +51,7 @@
 
         try {
           await this.$store.dispatch(types.EMAIL_SEND, this.email)
+          this.sended = true
           this.message = `
             Tudo certo! Em breve te enviaremos notícias sobre a loja.
             <br />
