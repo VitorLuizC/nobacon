@@ -4,6 +4,7 @@
       ref="input"
       class="input"
       type="email"
+      placeholder="Digite seu email"
       :value="value"
       @keyup="event => pressed(event)" />
 
@@ -55,7 +56,6 @@
       },
       pressed (event) {
         const { target, key } = event
-        console.log(target.value)
         this.sugest(target.value)
         if ((key === 'Tab' || key === 'ArrowRight') && this.sugestion) {
           this.$emit('input', this.sugestion)
@@ -80,13 +80,14 @@
       height: @width
 
     & > .input
-      border: 0 none transparent
+      padding: 0
+      border: none
       background-color: transparent
 
     & > .sugestion
       position: absolute
-      top: 3px
-      left: 3px
+      top: 0
+      left: 0
       opacity: .75
       z-index: -1
 </style>

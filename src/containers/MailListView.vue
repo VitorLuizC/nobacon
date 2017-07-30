@@ -29,6 +29,15 @@
     },
     methods: {
       async send () {
+        const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email)
+        if (!isValidEmail) {
+          this.isError = true
+          this.message = `
+            Parece que há um problema com o email que você digitou...
+          `
+          return
+        }
+
         try {
           await this.$store.dispatch(types.EMAIL_SEND, this.email)
           this.message = `
@@ -37,7 +46,6 @@
             Até logo!
           `
         } catch (error) {
-          console.log(error)
           this.isError = true
           this.message = `
             Que embaraçoso, parece que ocorreu um erro...
@@ -65,12 +73,14 @@
   border-color = #000
 
   .mail-list-section
+    position: relative
     display: flex
     flex-direction: column
     align-items: center
     justify-content: center
     width: 100%
     height: 100%
+    z-index: 0
 
     &::before
       position: absolute
@@ -82,6 +92,7 @@
       background-image: url('~@images/logo.png')
       background-position: center
       content: ''
+      z-index: -1
 
   .mail-list-form
     display: flex
@@ -91,9 +102,21 @@
 
     & > .button
       border: 3px solid border-color
-      background-image: none
+      font-weight: 500
+      background-image: linear-gradient(135deg, transparent 0, transparent 98%, border-color 99%, border-color 100%)
       background-color: transparent
+      box-shadow: 4px 4px 15px rgba(#000, .25)
+      transition: background-color .8s ease,
+                  color .8s ease,
+                  box-shadow .05s ease
 
+    & > .button:hover
+    & > .button:focus
+      background-color: border-color
+      color: #fff
+
+    & > .button:active
+      box-shadow: 0 0 0 rgba(#000, .25)
 
     & > .input
       margin-right: 10px

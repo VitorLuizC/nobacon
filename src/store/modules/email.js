@@ -3,10 +3,9 @@ import database from '@lib/database'
 
 const actions = {
   [types.EMAIL_SEND]: async (context, email) => {
-    const timestamp = Date.now()
     await database.ref('/email').push({
       email,
-      timestamp
+      date: Date.now()
     })
   }
 }
