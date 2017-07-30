@@ -2,14 +2,10 @@ import Vue from 'vue'
 import App from './App'
 import store from '@store'
 import router from './router'
+import * as filters from '@lib/filters'
 
-Vue.filter('$', function (value) {
-  const format = Intl.NumberFormat('pt-BR', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  })
-
-  return 'R$' + format.format(value)
+Object.keys(filters).forEach(filter => {
+  Vue.filter(filter, filters[filter])
 })
 
 const vue = new Vue({

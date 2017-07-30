@@ -21,6 +21,10 @@ export default new Router({
           }
         }
       ]
+    },
+    {
+      path: '/mail-list',
+      component: () => import('@containers/MailListView')
     }
   ]
 })

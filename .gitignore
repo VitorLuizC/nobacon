@@ -1,8 +1,13 @@
 # Dependências(módulos) do Node.js
-node_modules
+node_modules/
 
 # Arquivos de distribuição
-dist
+dist/
 
 # Arquivos do Mac
 .DS_Store
+
+# Arquivos de Log
+logs/
+*.log
+npm-debug.log.*
