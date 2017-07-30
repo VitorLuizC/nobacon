@@ -73,7 +73,7 @@
         setTimeout(() => {
           this.isError = false
           this.message = null
-        }, 12000)
+        }, 4000)
       }
     }
   }
@@ -146,6 +146,7 @@
     left: 50%
     background-color: #fff
     transform: translateX(-50%)
+    z-index: 1
 
     .text
       text-align: center
