@@ -16,7 +16,7 @@
       <h1 class="name">{{ product.name }}</h1>
       <div class="description" v-html="product.description" />
       <strong class="price">{{ product.price | $ }}</strong>
-      <ui-button>Comprar</ui-button>
+      <freight />
     </article>
   </main>
 </template>
@@ -24,10 +24,12 @@
 <script>
   import * as types from '@store/types'
   import { Slide, Carousel } from 'vue-carousel'
+  import Freight from '@containers/Freight'
 
   export default {
     components: {
       Carousel,
+      Freight,
       Slide
     },
     computed: {
