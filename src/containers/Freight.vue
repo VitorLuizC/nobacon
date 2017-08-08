@@ -14,6 +14,7 @@
   import { VueMaskDirective as mask } from 'v-mask'
   import Entry from '@components/Entry'
   import Action from '@components/Action'
+  import axios from 'axios'
 
   export default {
     components: {
@@ -32,17 +33,13 @@
       async calc () {
         const url = 'https://us-central1-nobacon-227bb.cloudfunctions.net/freight'
         try {
-          const response = await window.fetch(url, {
-            method: 'POST',
-            mode: 'no-cors',
-            body: {
-              code: this.code
-            }
+          const { data: prices } = await axios.post(url, {
+            code: this.code
           })
 
-          this.prices = await response.json()
+          this.prices = prices
         } catch (error) {
-          this.error = error
+          this.error = typeof error === 'string' ? error : error.message
         }
       }
     }

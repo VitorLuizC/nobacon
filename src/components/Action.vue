@@ -1,39 +1,39 @@
 <template>
-  <router-link v-if="to" class="ui-button" :to="to">
+  <component
+    class="action-container -link"
+    :is="isLink ? 'router-link' : 'button'"
+    :to="to"
+    :class="{ '-link': isLink  }">
     <span class="text">
       <slot />
     </span>
-  </router-link>
-  <button v-else class="ui-button">
-    <span class="text">
-      <slot />
-    </span>
-  </button>
+  </component>
 </template>
 
 <script>
   export default {
     props: {
-      to: {
-        type: String,
-        default: null
+      to: String
+    },
+    computed: {
+      isLink () {
+        return !!this.to
       }
     }
   }
 </script>
 
 <style lang="stylus">
-  .ui-button
+  .action-container
     display: inline-block
     box-sizing: border-box
     width: 120px
     height: 44px
     padding: 0
     border: 0
-    border-radius: (@height / 2)
+    border-radius: (@height / 8)
     line-height: @height
     text-align: center
-    text-decoration: none
     background-color: #960074
     background-image: linear-gradient(180deg, @background-color, rgba(#fff, .25))
     cursor: pointer
@@ -47,12 +47,12 @@
       color: #fff
       transition: color .6s ease
 
+    &.-link > .text
+      text-decoration: none
+
     &:hover
     &:active
       tranform: scale(1.1)
-      /**
-       * TODO: Adicionar uma transição com o "transform".
-       */
 
       > .text
         color: #fff

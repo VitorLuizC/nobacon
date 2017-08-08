@@ -2,17 +2,18 @@
   <div class="entry-container">
     <label v-if="label" class="label">{{ label }}</label>
     <slot v-if="$slots.default" />
-    <input v-else class="entry" v-bind="$attrs" />
+    <input
+      class="entry"
+      v-else
+      :value="value"
+      @input="event => $emit('input', event.target.value)" />
     <p v-if="error" class="error">{{ error }}</p>
   </div>
 </template>
 
 <script>
   export default {
-    props: {
-      label: String,
-      error: String
-    }
+    props: ['value', 'label', 'error']
   }
 </script>
 
